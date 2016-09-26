@@ -155,18 +155,20 @@ void helper(char c)
 int add(char* name, char* genderValueString, char* breed, int age, float weight, struct dog* list)
 {
 	int test = 0;
-	scanf( gender);
+	//gender x = genderValueString;
 
 
+	scanf("%s", list[test].name);
+	//scanf("%i", &list[test].genderValue);
+	scanf("%s", list[test].breed);
+	scanf("%i", &list[test].age);
+	scanf("%f", &list[test].weight);
 
-
-	scanf("%i", list[test].age = age);
-	scanf("%s", *list[test].breed = breed);
-	scanf("%i", list[test].genderValue = &genderValueString);
-	scanf("%f", list[test].weight = weight);
-	scanf("%d", *list[test].name = name);
 	test++;
 	return 1;
+	int i;
+	if(name == list[i].name && age = &list[i].age){}
+
 
 
 	/*gender genderValueString = male;
@@ -202,7 +204,19 @@ int add(char* name, char* genderValueString, char* breed, int age, float weight,
 // If the dog does not exist on the list, return NULL
 char* search(char* name, int age, struct dog* list)
 {
-	return NULL;
+	int i;
+	scanf("%s", name);
+	for (i = 0; i < sizeof(list); i++)
+	{
+		if (stricmp(name, list[i].name) == 0)
+		{
+			printf("Name = %s\n", list[i].name);
+			printf("Age = %i\n", list[i].age);
+			return i;
+		}
+		else
+			return NULL;
+	}	
 }
 
 // This function displays the list of dogs and the information for each one. It is already implemented for you.
@@ -257,11 +271,12 @@ void save(char* fileName)
 // Use the save function given above as an example on how to write this function.
 void load(char* fileName)
 {
-	FILE *file;
+	FILE* file;
 
-	file = fopen(fileName, "rb");
+	file = fopen(fileName, "rb");	
+
 	fread(&count, sizeof(count), 1, file);
-	if (fileName != NULL)
+	if (file != NULL)
 	{
 		for (int i = 0; i < count; i++)
 		{
@@ -271,8 +286,8 @@ void load(char* fileName)
 			fread(&list[i].age, sizeof(list[i].age), 1, file);
 			fread(&list[i].weight, sizeof(list[i].weight), 1, file);
 		}
-		fclose(fileName);
+		fclose(file);
 	}
 	else
-		return NULL;
+		printf("Can not open file!\n");
 }
