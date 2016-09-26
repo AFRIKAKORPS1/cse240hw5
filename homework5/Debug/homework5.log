@@ -1,0 +1,13 @@
+﻿  hw05(4).c
+c:\users\trevor\documents\visual studio 2015\projects\homework5\homework5\hw05(4).c(114): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\trevor\documents\visual studio 2015\projects\homework5\homework5\hw05(4).c(162): warning C4047: '=': 'char' differs in levels of indirection from 'char *'
+c:\users\trevor\documents\visual studio 2015\projects\homework5\homework5\hw05(4).c(163): error C2440: '=': cannot convert from 'char **' to 'gender'
+c:\users\trevor\documents\visual studio 2015\projects\homework5\homework5\hw05(4).c(165): warning C4047: '=': 'char' differs in levels of indirection from 'char *'
+c:\users\trevor\documents\visual studio 2015\projects\homework5\homework5\hw05(4).c(161): warning C4477: 'scanf' : format string '%i' requires an argument of type 'int *', but variadic argument 1 has type 'int'
+c:\users\trevor\documents\visual studio 2015\projects\homework5\homework5\hw05(4).c(162): warning C4477: 'scanf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'int'
+c:\users\trevor\documents\visual studio 2015\projects\homework5\homework5\hw05(4).c(163): warning C4473: 'scanf' : not enough arguments passed for format string
+  c:\users\trevor\documents\visual studio 2015\projects\homework5\homework5\hw05(4).c(163): note: placeholders and their parameters expect 1 variadic arguments, but 0 were provided
+  c:\users\trevor\documents\visual studio 2015\projects\homework5\homework5\hw05(4).c(163): note: the missing variadic argument 1 is required by format string '%i'
+c:\users\trevor\documents\visual studio 2015\projects\homework5\homework5\hw05(4).c(164): warning C4477: 'scanf' : format string '%f' requires an argument of type 'float *', but variadic argument 1 has type 'double'
+c:\users\trevor\documents\visual studio 2015\projects\homework5\homework5\hw05(4).c(165): warning C4477: 'scanf' : format string '%d' requires an argument of type 'int *', but variadic argument 1 has type 'int'
+c:\users\trevor\documents\visual studio 2015\projects\homework5\homework5\hw05(4).c(258): warning C4098: 'load': 'void' function returning a value
