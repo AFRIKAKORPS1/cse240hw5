@@ -150,51 +150,73 @@ void helper(char c)
 // NOTE: You should not allow for the same dog to be added twice, you will lose points if you do not account for this.
 // (That means that dogs on the list are allowed to have the same name OR the same age, but not both).
 //
-// You are not required to use pointer operations for your list but you may do so if you'd like. 
+// You are not required to use pointer operations for your list but you may do so if you'd like.
 // 'list' is passed to this function for automated testing purposes only, it is global.
 int add(char* name, char* genderValueString, char* breed, int age, float weight, struct dog* list)
 {
-	int test = 0;
-	//gender x = genderValueString;
+	gender newDogGender;
 
-
-	scanf("%s", list[test].name);
-	//scanf("%i", &list[test].genderValue);
-	scanf("%s", list[test].breed);
-	scanf("%i", &list[test].age);
-	scanf("%f", &list[test].weight);
-
-	test++;
-	return 1;
-	int i;
-	if(name == list[i].name && age = &list[i].age){}
-
-
-
-	/*gender genderValueString = male;
-
-	for (int i = 0; i < 30 - 1; i++) 
+	if(strcmp(genderValueString, "male"))
 	{
-		for (int j = i + 1; j < 30; j++)
+		newDogGender = male;
+	}
+	else
+	{
+		newDogGender = female;
+	}
+
+	for (size_t i = 0; i < count; i++)
+	{
+		if(list[i].age == age && strcmp(list[i].name, name))
 		{
-			if (&list[i] == &list[j]) 
+			return 0;
+		}
+	}
+
+	int newIndex = -1;
+
+	for (size_t i = 0; i < count; i++)
+	{
+		if (strcmp(list[i].name, name) > 0)
+		{
+			newIndex = i;
+		}
+		else if (strcmp(list[i].name, name))
+		{
+			if(list[i].age > age)
 			{
-				return 0;
+				newIndex = i;
 			}
 			else
 			{
-				scanf("%i", list[test].age = age);
-				scanf("%s", *list[test].breed = breed);
-				scanf("%s", list[test].genderValue = genderValueString);
-				scanf("%f", list[test].weight = weight);
-				scanf("%d", *list[test].name = name);
-				test++;
-				return 1;
+				newIndex = i + 1;
 			}
 		}
-	}*/
+	}
 
-	
+	if(newIndex == -1)
+	{
+		newIndex = count;
+	}
+
+	for (size_t i = count; i > -1; i--)
+	{
+		if (i == newIndex)
+		{
+			strcpy(list[i].name, name);
+			strcpy(list[i].breed, breed);
+			list[i].weight = weight;
+			list[i].age = age;
+			list[i].genderValue = newIndex;
+			i = -1;
+		}
+		else
+		{
+			list[i] = list[i - 1];
+		}
+	}
+
+	return 1;
 }
 
 // Q2 : search (10 points)
@@ -208,15 +230,12 @@ char* search(char* name, int age, struct dog* list)
 	scanf("%s", name);
 	for (i = 0; i < sizeof(list); i++)
 	{
-		if (stricmp(name, list[i].name) == 0)
+		if (strcmp(name, list[i].name) == 0)
 		{
-			printf("Name = %s\n", list[i].name);
-			printf("Age = %i\n", list[i].age);
-			return i;
+			return list[i].breed;
 		}
-		else
-			return NULL;
-	}	
+	}
+	return NULL;
 }
 
 // This function displays the list of dogs and the information for each one. It is already implemented for you.
@@ -267,13 +286,13 @@ void save(char* fileName)
 }
 
 // Q3:  Load file (10 points)
-// This function loads data from file and build the the array of structures. 
+// This function loads data from file and build the the array of structures.
 // Use the save function given above as an example on how to write this function.
 void load(char* fileName)
 {
 	FILE* file;
 
-	file = fopen(fileName, "rb");	
+	file = fopen(fileName, "rb");
 
 	fread(&count, sizeof(count), 1, file);
 	if (file != NULL)
