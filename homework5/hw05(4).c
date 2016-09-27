@@ -156,7 +156,7 @@ int add(char* name, char* genderValueString, char* breed, int age, float weight,
 {
 	gender newDogGender;
 
-	if(strcmp(genderValueString, "male"))
+	if(strcmp(genderValueString, "male") == 0)
 	{
 		newDogGender = male;
 	}
@@ -199,7 +199,7 @@ int add(char* name, char* genderValueString, char* breed, int age, float weight,
 		newIndex = count;
 	}
 
-	for (size_t i = count; i > -1; i--)
+	for (int i = count; i > -1; i--)
 	{
 		if (i == newIndex)
 		{
@@ -207,7 +207,8 @@ int add(char* name, char* genderValueString, char* breed, int age, float weight,
 			strcpy(list[i].breed, breed);
 			list[i].weight = weight;
 			list[i].age = age;
-			list[i].genderValue = newIndex;
+			list[i].genderValue = newDogGender;
+			count++;
 			i = -1;
 		}
 		else
