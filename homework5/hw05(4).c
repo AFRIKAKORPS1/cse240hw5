@@ -156,7 +156,7 @@ int add(char* name, char* genderValueString, char* breed, int age, float weight,
 {
 	gender newDogGender;
 
-	if(strcmp(genderValueString, "male") == 0)
+	if((strcmp(genderValueString, "male") == 0) || (strcmp(genderValueString, "Male") == 0))
 	{
 		newDogGender = male;
 	}
@@ -167,7 +167,7 @@ int add(char* name, char* genderValueString, char* breed, int age, float weight,
 
 	for (size_t i = 0; i < count; i++)
 	{
-		if(list[i].age == age && strcmp(list[i].name, name))
+		if(list[i].age == age && strcmp(list[i].name, name) == 0)
 		{
 			return 0;
 		}
@@ -181,7 +181,7 @@ int add(char* name, char* genderValueString, char* breed, int age, float weight,
 		{
 			newIndex = i;
 		}
-		else if (strcmp(list[i].name, name))
+		else if (strcmp(list[i].name, name) == 0)
 		{
 			if(list[i].age > age)
 			{
@@ -227,9 +227,7 @@ int add(char* name, char* genderValueString, char* breed, int age, float weight,
 // If the dog does not exist on the list, return NULL
 char* search(char* name, int age, struct dog* list)
 {
-	int i;
-	scanf("%s", name);
-	for (i = 0; i < sizeof(list); i++)
+	for (size_t i = 0; i < count; i++)
 	{
 		if (strcmp(name, list[i].name) == 0)
 		{
